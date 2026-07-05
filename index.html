@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>長利美里 | EC運営・デザインポートフォリオ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F7F1E6;
+    --paper-2: #EFE6D3;
+    --ink: #3A342B;
+    --ink-soft: #6B6255;
+    --tape-teal: #4F8C82;
+    --tape-teal-dark: #386B62;
+    --tape-coral: #E28B6D;
+    --tape-sage: #A9BFA0;
+    --card: #FFFFFF;
+    --line: #DCD0B8;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(58,52,43,0.05) 1px, transparent 0);
+    background-size: 22px 22px;
+    color: var(--ink);
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    line-height: 1.8;
+  }
+
+  .wrap {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 64px 24px 120px;
+  }
+
+  /* --- washi tape strip, the signature element --- */
+  .tape {
+    display: inline-block;
+    position: relative;
+    padding: 6px 22px;
+    color: #fff;
+    font-family: 'Shippori Mincho', serif;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    transform: rotate(-1.4deg);
+    box-shadow: 0 2px 6px rgba(58,52,43,0.18);
+  }
+  .tape::before, .tape::after {
+    content: "";
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 10px;
+    background: inherit;
+  }
+  .tape.teal { background: var(--tape-teal); }
+  .tape.coral { background: var(--tape-coral); }
+
+  header.hero {
+    text-align: center;
+    margin-bottom: 96px;
+  }
+  .eyebrow {
+    font-size: 14px;
+    color: var(--ink-soft);
+    letter-spacing: 0.3em;
+    margin-bottom: 18px;
+  }
+  h1.name {
+    font-family: 'Shippori Mincho', serif;
+    font-size: clamp(38px, 6vw, 58px);
+    margin: 0 0 8px;
+    font-weight: 700;
+  }
+  .role {
+    font-size: 18px;
+    color: var(--ink-soft);
+    margin-bottom: 40px;
+  }
+  .stat-row {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+  }
+  .stat {
+    text-align: center;
+  }
+  .stat .num {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 34px;
+    color: var(--tape-teal-dark);
+    font-weight: 700;
+  }
+  .stat .label {
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-top: 4px;
+  }
+  .lead {
+    max-width: 620px;
+    margin: 32px auto 0;
+    color: var(--ink-soft);
+    font-size: 15px;
+  }
+
+  section { margin-bottom: 90px; }
+  .section-head { margin-bottom: 36px; }
+  .section-head h2 { margin: 0; font-size: 15px; }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+  }
+  .skill-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 24px;
+    position: relative;
+  }
+  .skill-card .tool {
+    font-family: 'Shippori Mincho', serif;
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 4px;
+  }
+  .skill-card .years {
+    font-size: 12px;
+    color: var(--tape-teal-dark);
+    margin-bottom: 12px;
+  }
+  .skill-card p {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  /* polaroid-style work samples */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 36px 28px;
+    margin-top: 20px;
+  }
+  figure.polaroid {
+    background: var(--card);
+    padding: 14px 14px 20px;
+    box-shadow: 0 6px 16px rgba(58,52,43,0.14);
+    border-radius: 2px;
+    margin: 0;
+  }
+  figure.polaroid:nth-child(odd) { transform: rotate(-1.2deg); }
+  figure.polaroid:nth-child(even) { transform: rotate(1deg); }
+  figure.polaroid img {
+    width: 100%;
+    display: block;
+    border-radius: 1px;
+  }
+  figure.polaroid figcaption {
+    margin-top: 10px;
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    text-align: center;
+  }
+
+  .subhead {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 19px;
+    margin: 48px 0 18px;
+  }
+
+  /* career timeline */
+  .timeline {
+    border-left: 2px dashed var(--line);
+    padding-left: 28px;
+  }
+  .role-block {
+    margin-bottom: 36px;
+    position: relative;
+  }
+  .role-block::before {
+    content: "";
+    position: absolute;
+    left: -34px;
+    top: 4px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--tape-teal);
+  }
+  .role-block .period {
+    font-size: 12.5px;
+    color: var(--tape-teal-dark);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  .role-block h3 {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 18px;
+    margin: 4px 0 6px;
+  }
+  .role-block .org {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin-bottom: 10px;
+  }
+  .role-block ul {
+    margin: 0;
+    padding-left: 18px;
+    font-size: 14px;
+    color: var(--ink);
+  }
+  .role-block li { margin-bottom: 4px; }
+
+  .hobby-line {
+    text-align: center;
+    color: var(--ink-soft);
+    font-size: 13px;
+    margin-top: -50px;
+    margin-bottom: 90px;
+  }
+
+  footer {
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-soft);
+    padding-top: 40px;
+    border-top: 1px solid var(--line);
+  }
+
+  @media (max-width: 560px) {
+    .stat-row { gap: 28px; }
+    figure.polaroid:nth-child(odd),
+    figure.polaroid:nth-child(even) { transform: none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow">PORTFOLIO</div>
+    <h1 class="name">M.N.</h1>
+    <div class="role">EC運営 / セール企画 / Webデザイン（Illustrator・Photoshop）</div>
+
+    <div class="stat-row">
+      <div class="stat">
+        <div class="num">9年</div>
+        <div class="label">ECサイト運営 通算経験</div>
+      </div>
+      <div class="stat">
+        <div class="num">1,300万→4,100万円</div>
+        <div class="label">楽天市場店 月商成長（4年間）</div>
+      </div>
+      <div class="stat">
+        <div class="num">50万→1億円</div>
+        <div class="label">プロテイン商材 年間売上成長</div>
+      </div>
+    </div>
+
+    <p class="lead">
+      2〜4名の少数チームで、セール企画・販促デザイン・データ分析のPDCAを回しながら楽天市場運営に従事。
+      企画立案からバナー・LP制作までを一気通貫で担当できるのが強みです。
+    </p>
+  </header>
+
+  <section>
+    <div class="section-head"><span class="tape teal">SKILLS</span></div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="tool">Illustrator</div>
+        <div class="years">使用歴 15年以上</div>
+        <p>Webデザイン・LP作成・バナー作成から印刷物まで幅広く対応。</p>
+      </div>
+      <div class="skill-card">
+        <div class="tool">Photoshop</div>
+        <div class="years">使用歴 10年以上</div>
+        <p>Webデザイン・バナー作成・商品写真の加工。</p>
+      </div>
+      <div class="skill-card">
+        <div class="tool">Excel（VBA）</div>
+        <div class="years">使用歴 10年以上</div>
+        <p>CSV作成の自動化システム構築、データ分析、コーディング。</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="tape coral">WORKS — 楽天販促デザイン</span></div>
+
+    <div class="subhead">楽天スーパーSALE 販促素材（2023年3月）</div>
+    <p style="color:var(--ink-soft); font-size:14px; max-width:640px;">
+      3ヶ月に1度のビッグセール期間中、日替わりの目玉企画を毎日実施。企画立案からバナー・クーポン画像のデザインまでを担当し、顧客が直感的に理解できる見せ方を重視しました。
+    </p>
+    <div class="gallery">
+      <figure class="polaroid">
+        <img src="portfolio_assets/banner1.png" alt="楽天スーパーSALE 販促バナー例1">
+        <figcaption>日替わり目玉企画バナー</figcaption>
+      </figure>
+      <figure class="polaroid">
+        <img src="portfolio_assets/banner2.png" alt="楽天スーパーSALE 販促バナー例2">
+        <figcaption>タイムセール告知バナー</figcaption>
+      </figure>
+    </div>
+
+    <div class="subhead">楽天ポイントアップ企画販促（2023年12月）</div>
+    <p style="color:var(--ink-soft); font-size:14px; max-width:640px;">
+      楽天独自のポイントアップキャンペーンを、初回購入者にも伝わりやすい構成に変更。訴求内容を整理し、購入率向上を狙ったデザインへ改善しました。
+    </p>
+    <div class="gallery">
+      <figure class="polaroid">
+        <img src="portfolio_assets/banner3.png" alt="ポイントアップ企画バナー">
+        <figcaption>改善後の採用バナー</figcaption>
+      </figure>
+      <figure class="polaroid">
+        <img src="portfolio_assets/coupon1.png" alt="ポイント訴求の説明画像">
+        <figcaption>ポイント訴求 説明用画像</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="tape teal">WORKS — クラフト系ECサイト運営</span></div>
+    <p style="color:var(--ink-soft); font-size:14px; max-width:640px;">
+      スクラップブッキング用品（型番商品2,000点以上）を扱う自社ECサイトの店長として、商品企画・撮影・販促デザイン・サイト運営を一貫して担当しました。
+    </p>
+    <div class="gallery">
+      <figure class="polaroid">
+        <img src="portfolio_assets/craft1.png" alt="ハロウィン・クリスマスなど季節商品キット">
+        <figcaption>ハロウィン・クリスマスなど季節商品キット</figcaption>
+      </figure>
+      <figure class="polaroid">
+        <img src="portfolio_assets/craft2.png" alt="卒業式をテーマにしたキット">
+        <figcaption>卒業式をテーマにしたキット</figcaption>
+      </figure>
+      <figure class="polaroid">
+        <img src="portfolio_assets/album1.png" alt="オリジナルミニアルバムの台紙制作">
+        <figcaption>ミニアルバム台紙デザイン（Illustrator／レーザーカッター）</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="tape coral">CAREER</span></div>
+    <div class="timeline">
+      <div class="role-block">
+        <div class="period">2020年1月〜現在</div>
+        <h3>楽天市場 自社運営店舗 運営</h3>
+        <div class="org">グルメ系商品 EC店舗</div>
+        <ul>
+          <li>セール企画の立案・実行、販売データを基にした売上予測・発注</li>
+          <li>バナー・説明文などの販促クリエイティブ制作</li>
+          <li>メルマガ・LINE配信の管理、広告運用（純広告・検索広告・SNS広告）</li>
+        </ul>
+      </div>
+      <div class="role-block">
+        <div class="period">2014年8月〜2019年9月</div>
+        <h3>ECサイト店長（スクラップブッキング用品）</h3>
+        <div class="org">輸入クラフト用品専門ECサイト</div>
+        <ul>
+          <li>未経験から仕入れ以外の運営全般を担当、パート4名のマネジメント</li>
+          <li>CSV一括登録の仕組みをエンジニアと連携して構築</li>
+          <li>商品企画・撮影・受注/クレーム対応・バナーデザイン・サイトコーディング（HTML/CSS）</li>
+        </ul>
+      </div>
+      <div class="role-block">
+        <div class="period">2010年9月〜2014年7月</div>
+        <h3>広告制作（店舗紹介パネル制作）</h3>
+        <div class="org">案内所向けパネル制作事業</div>
+        <ul>
+          <li>依頼者の店舗の雰囲気に合わせたデザイン提案</li>
+          <li>スピードとクオリティの両立を意識した制作進行</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <p class="hobby-line">趣味：漫画 / ゲーム / 3D制作 / 読書</p>
+
+  <footer>
+    Portfolio ／ 本名はお問い合わせ・応募フォーム提出時に別途お伝えします。
+  </footer>
+
+</div>
+</body>
+</html>
