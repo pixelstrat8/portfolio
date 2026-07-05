@@ -40,24 +40,38 @@
   }
 
   /* --- washi tape strip, the signature element --- */
-  .tape {
-    display: inline-block;
-    position: relative;
-    padding: 6px 22px;
-    color: #fff;
-    font-family: 'Shippori Mincho', serif;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    transform: rotate(-1.4deg);
-    box-shadow: 0 2px 6px rgba(58,52,43,0.18);
-  }
-  .tape::before, .tape::after {
-    content: "";
-    position: absolute;
-    top: 0; bottom: 0;
-    width: 10px;
-    background: inherit;
-  }
+.tape {
+  display: inline-block;
+  position: relative;
+  padding: 6px 24px;
+  color: #fff;
+  font-family: 'Shippori Mincho', serif;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  transform: rotate(-1.4deg);
+  box-shadow: 0 2px 6px rgba(58,52,43,0.18);
+  overflow: visible;
+}
+
+.tape::before {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: 0;
+  bottom: 0;
+  width: 10px;
+  background: inherit;
+}
+
+.tape::after {
+  content: "";
+  position: absolute;
+  right: -10px;
+  top: 0;
+  bottom: 0;
+  width: 10px;
+  background: inherit;
+}
   .tape.teal { background: var(--tape-teal); }
   .tape.coral { background: var(--tape-coral); }
 
